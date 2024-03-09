@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'package:seki_birthday/consts/consts.dart';
-import '/controllers/setting_controller.dart';
-import '/views/screens/splash_screen.dart';
-import 'controllers/map_controller.dart';
+import 'package:seki_birthday/controllers/setting_controller.dart';
+import 'package:seki_birthday/views/screens/splash_screen.dart';
+import 'package:seki_birthday/controllers/map_controller.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
