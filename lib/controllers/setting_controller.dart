@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import '/consts/consts.dart';
 import '/services/api_services.dart';
@@ -16,7 +15,6 @@ class SettingController extends GetxController {
   RxString interstitialPlacementId = ''.obs;
   RxString nativePlacementId = ''.obs;
   RxInt sliderIndex = 0.obs;
-  Rxn<PackageInfo> appInfo = Rxn<PackageInfo>().obs();
 
   loadData() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
