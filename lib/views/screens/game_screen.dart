@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controllers/npc_controllers.dart';
+import '/controllers/npc_controllers.dart';
 import '../../consts/consts.dart';
-import '/controllers/character_controller.dart';
+import 'package:seki_birthday/controllers/character_controller.dart';
 import '/controllers/map_controller.dart';
 import '/views/widgets/button.dart';
 import '/views/widgets/character.dart';
