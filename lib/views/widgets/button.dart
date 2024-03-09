@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '/consts/consts.dart';
+import '../../consts/consts.dart';
 
 class TapButton extends StatefulWidget {
   const TapButton(this.text, {this.function, super.key});

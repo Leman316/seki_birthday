@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/consts/consts.dart';
+import '../../consts/consts.dart';
 
 prizeDialog(BuildContext context, Map<String, String> data) {
   Future.delayed(
@@ -9,12 +9,10 @@ prizeDialog(BuildContext context, Map<String, String> data) {
       showGeneralDialog(
         context: context,
         barrierDismissible: true,
-        barrierLabel:
-            MaterialLocalizations.of(context).modalBarrierDismissLabel,
+        barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
         barrierColor: Colors.black45,
         transitionDuration: const Duration(milliseconds: 200),
-        pageBuilder: (BuildContext buildContext, Animation animation,
-            Animation secondaryAnimation) {
+        pageBuilder: (BuildContext buildContext, Animation animation, Animation secondaryAnimation) {
           return Center(
             child: SizedBox(
               width: MediaQuery.of(context).size.width - 40,
@@ -85,8 +83,7 @@ prizeDialog(BuildContext context, Map<String, String> data) {
                                   children: [
                                     if (data['perKill'] != '0.00')
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8),
+                                        padding: const EdgeInsets.only(bottom: 8),
                                         child: Text(
                                           'Per Kill: ${data['perKill']}',
                                           style: AppStyles.heading.copyWith(
@@ -98,8 +95,7 @@ prizeDialog(BuildContext context, Map<String, String> data) {
                                       ),
                                     if (data['winningPrize'] != '0.00')
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8),
+                                        padding: const EdgeInsets.only(bottom: 8),
                                         child: Text(
                                           'Winning Kill: ৳ ${data['winningPrize']}',
                                           style: AppStyles.heading.copyWith(
@@ -111,8 +107,7 @@ prizeDialog(BuildContext context, Map<String, String> data) {
                                       ),
                                     if (data['secondPrize'] != '0.00')
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8),
+                                        padding: const EdgeInsets.only(bottom: 8),
                                         child: Text(
                                           'Second Kill: ৳ ${data['secondPrize']} TK',
                                           style: AppStyles.heading.copyWith(
@@ -124,8 +119,7 @@ prizeDialog(BuildContext context, Map<String, String> data) {
                                       ),
                                     if (data['thirdPrize'] != '0.00')
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8),
+                                        padding: const EdgeInsets.only(bottom: 8),
                                         child: Text(
                                           'Third Kill: ৳ ${data['thirdPrize']}',
                                           style: AppStyles.heading.copyWith(

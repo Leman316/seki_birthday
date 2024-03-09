@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '/consts/consts.dart';
+import '../consts/consts.dart';
 
 class MapController extends GetxController {
   RxInt currentMap = 1.obs;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/consts/consts.dart';
+import '../../consts/consts.dart';
 import '/models/npc_interface.dart';
 
 class NPCWidget extends StatefulWidget {

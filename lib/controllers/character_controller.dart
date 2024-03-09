@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '/consts/consts.dart';
+import '../consts/consts.dart';
 import '/controllers/map_controller.dart';
 import 'npc_controllers.dart';
 

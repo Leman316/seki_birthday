@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '/consts/consts.dart';
+
+import '../../consts/consts.dart';
 import '/controllers/character_controller.dart';
 import '/utils/helpers.dart';
 

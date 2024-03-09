@@ -2,7 +2,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '/consts/consts.dart';
+import '../consts/consts.dart';
 import '/services/api_services.dart';
 import '/utils/helpers.dart';
 

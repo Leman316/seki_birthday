@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/consts/consts.dart';
+import '../consts/consts.dart';
 
 class AppStyles {
   static final TextStyle text = TextStyle(

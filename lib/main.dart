@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '/consts/consts.dart';
+import '../consts/consts.dart';
 import '/controllers/setting_controller.dart';
 import '/views/screens/splash_screen.dart';
 import 'controllers/map_controller.dart';
