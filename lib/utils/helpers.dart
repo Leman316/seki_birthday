@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:get_storage/get_storage.dart';
 import '/consts/consts.dart';
 
@@ -14,13 +13,6 @@ getHeight(context, percentage) {
 getWidth(context, percentage) {
   double width = MediaQuery.of(context).size.width;
   return width * percentage / 100;
-}
-
-launchURL(url) async {
-  Uri uri = Uri.parse(url);
-  if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-    dd('Could not launch $uri');
-  }
 }
 
 showToast(String message, [ToastGravity gravity = ToastGravity.BOTTOM]) {
