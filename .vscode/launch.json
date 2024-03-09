@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib/views/widgets/my_button.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/views/widgets/my_button.dart"
+        }
+    ]
+}
