@@ -20,7 +20,7 @@ class NorController extends GetxController implements NPCInterface {
     "Man. I really wish I knew what chair seki is sitting on so i can get the same feeling of touch he has on his pumpkins everyday.",
     "I have to go pick up my girlfriend from kindergarten...",
     "...It's her first day of teaching at school.",
-    "Happy Birthday. Thanks for being veryPog"
+    "Happy Birthday. Thanks for being veryPog. Come play PoE",
   ];
 
   List<List<double>> activeLocation = [

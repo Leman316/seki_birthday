@@ -21,7 +21,7 @@ class LemanController extends GetxController implements NPCInterface {
     "Gotta pay 9.99 to unlock the combat DLC. YEP",
     "Is this the year Seki finally plays Persona? Shirley",
     "Chat, message me for free early copy of Silksong. Clueless",
-    "Me when I have to code -> LemanScripting. Me when I have to write a birthday message -> HardStuck"
+    "Me when I have to code -> LemanScripting. Me when I have to write a birthday message -> HardStuck",
   ];
 
   List<List<double>> activeLocation = [
