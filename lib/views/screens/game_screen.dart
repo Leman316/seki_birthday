@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '/controllers/npc_controllers.dart';
 import '../../consts/consts.dart';
-import 'package:seki_birthday/controllers/character_controller.dart';
+import '/controllers/character_controller.dart';
 import '/controllers/map_controller.dart';
 import '/views/widgets/button.dart';
 import '/views/widgets/character.dart';
@@ -47,20 +47,20 @@ class GameScreenState extends State<GameScreen> {
                   image: AssetImage(
                     mapController.showMap[mapController.currentMap.value] ?? AppAssets.map1,
                   ),
-                  fit: BoxFit.fitHeight,
+                  fit: mapController.currentMap.value == 5 ? BoxFit.fill : BoxFit.fitHeight,
                   alignment: Alignment.center,
                 ),
               ),
               child: Stack(
                 children: [
                   if (mapController.currentMap.value == 1) ...[
-                    NPCWidget(controller: JerzyController()),
+                    NPCWidget(controller: NatController()),
                     NPCWidget(controller: CharityController()),
                     NPCWidget(controller: PisuJohnController()),
                   ],
                   if (mapController.currentMap.value == 2) ...[
+                    NPCWidget(controller: JammyController()),
                     NPCWidget(controller: EllenController()),
-                    NPCWidget(controller: NGController()),
                     NPCWidget(controller: PasswordzController()),
                   ],
                   if (mapController.currentMap.value == 3) ...[
@@ -70,6 +70,12 @@ class GameScreenState extends State<GameScreen> {
                   ],
                   if (mapController.currentMap.value == 4) ...[
                     NPCWidget(controller: KittyController()),
+                    NPCWidget(controller: FishyController()),
+                    NPCWidget(controller: FoxController()),
+                  ],
+                  if (mapController.currentMap.value == 5) ...[
+                    NPCWidget(controller: PayController()),
+                    NPCWidget(controller: LemanController()),
                   ],
                   PlayerCharacter(),
                   if (player.showDialogue.value) const SpeechBubble(),
@@ -78,15 +84,18 @@ class GameScreenState extends State<GameScreen> {
             ),
           ),
           Positioned(
-            left: AppSizes.newSize(5.5),
+            left: AppSizes.newSize(6.5),
             bottom: AppSizes.newSize(10),
-            child: Row(
-              children: [
-                TapButton(
-                  'W',
-                  function: () => player.move(Direction.up),
-                )
-              ],
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              child: Row(
+                children: [
+                  TapButton(
+                    'W',
+                    function: () => player.move(Direction.up),
+                  )
+                ],
+              ),
             ),
           ),
           Positioned(
@@ -116,9 +125,7 @@ class GameScreenState extends State<GameScreen> {
               children: [
                 TapButton(
                   'R',
-                  function: () {
-                    player.reset();
-                  },
+                  function: () => player.reset(),
                 )
               ],
             ),

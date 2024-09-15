@@ -6,23 +6,26 @@ import '../character_controller.dart';
 
 class EllenController extends GetxController implements NPCInterface {
   @override
-  double get posX => .43 * Get.height;
+  double get posX => .65 * Get.height;
   @override
   double get posY => .275 * Get.width;
   @override
-  String get assetPath => AppAssets.ellen;
+  String get assetPath => AppAssets.ngda;
 
   RxInt currentDialoguePosition = 0.obs;
   String characterName = "Ellen: ";
   List<String> dialogues = [
-    "ayo",
-    "ab",
-    "ac",
+    "The louder the screaming, the closer to victory",
+    "Idk it's too late my English isnt always englishing ok.",
+    "Last night i was looking for ur emotes but was unsubbed. Saddest night of my life.",
+    "We hating on pregnant ladies now? what did i miss?",
+    "Dude, there's nothing that gets me going like whips.",
+    "Wishing you the happiest of birthdays!"
   ];
 
   List<List<double>> activeLocation = [
-    [0.40, 0.46],
-    [0.25, 0.30],
+    [0.61, 0.69],
+    [0.24, 0.31],
   ];
 
   showDialogue(double xPosition, double yPosition) {

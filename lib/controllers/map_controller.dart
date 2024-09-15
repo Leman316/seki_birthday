@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:seki_birthday/utils/helpers.dart';
 import '../consts/consts.dart';
 
 class MapController extends GetxController {
@@ -9,6 +10,7 @@ class MapController extends GetxController {
     2: AppAssets.map2,
     3: AppAssets.map3,
     4: AppAssets.map4,
+    5: AppAssets.map5,
   }.obs;
 
   List<List<List<double>>> map1NoGoZones = [
@@ -60,5 +62,16 @@ class MapController extends GetxController {
     ],
   ];
   List<List<List<double>>> map4NoGoZones = [];
-  List<List<List<double>>> map5NoGoZones = [];
+  List<List<List<double>>> map5NoGoZones = [
+    [
+      [0.03, 0.26],
+      [0.33, 0.48],
+    ],
+  ];
+
+  @override
+  void onInit() {
+    super.onInit();
+    currentMap.value = readStorage("map") ?? 1;
+  }
 }

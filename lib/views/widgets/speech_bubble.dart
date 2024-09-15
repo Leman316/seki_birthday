@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '/controllers/character_controller.dart';
 
 import '../../consts/consts.dart';
+import 'custom_typewriter.dart';
 
 class SpeechBubble extends StatefulWidget {
   const SpeechBubble({super.key});
@@ -31,7 +32,7 @@ class _SpeechBubbleState extends State<SpeechBubble> {
           width: Get.width * .65,
           child: AnimatedTextKit(
             animatedTexts: [
-              TypewriterAnimatedText(
+              CustomTypewriterAnimatedText(
                 player.dialogueText.value,
                 textStyle: TextStyle(
                   fontSize: AppSizes.size13,

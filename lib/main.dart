@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'package:seki_birthday/consts/consts.dart';
-import 'package:seki_birthday/controllers/setting_controller.dart';
-import 'package:seki_birthday/views/screens/splash_screen.dart';
-import 'package:seki_birthday/controllers/map_controller.dart';
+import '/consts/consts.dart';
+import '/controllers/setting_controller.dart';
+import '/views/screens/splash_screen.dart';
+import '/controllers/map_controller.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,10 +31,7 @@ main() async {
       ),
       title: AppTexts.appName,
       onGenerateRoute: (settings) {
-        final routes = <String, WidgetBuilder>{
-          // PsScheduleScreen.route: (BuildContext context) =>
-          //     PsScheduleScreen(settings.arguments),
-        };
+        final routes = <String, WidgetBuilder>{};
         WidgetBuilder? builder = routes[settings.name];
         return MaterialPageRoute(builder: (context) => builder!(context));
       },
@@ -55,17 +52,9 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  SettingController settingController = Get.find();
-
-  var hasNotification = false;
-
-  late Map arguments;
-
   @override
   void initState() {
     super.initState();
-
-    settingController.loadData();
   }
 
   @override

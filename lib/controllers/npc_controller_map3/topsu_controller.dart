@@ -15,14 +15,17 @@ class TopsuController extends GetxController implements NPCInterface {
   RxInt currentDialoguePosition = 0.obs;
   String characterName = "Topsu: ";
   List<String> dialogues = [
-    "ayaaao",
-    "ssab",
-    "ac",
+    "Wait, this isn't a Forsen stream.",
+    "My whole personality is being a forsen viewer.",
+    "Making dumb niche jokes that no one except maybe leman will get. Aware",
+    "Maybe One day, I'll be able to beat your run. BillyApprove",
+    "Yeah its definitely cool to hold WR at least once even if the run wasn't too great",
+    "happy birthday! FeelsStrongMan.",
   ];
 
   List<List<double>> activeLocation = [
     [0.24, 0.32],
-    [0.52, 0.58],
+    [0.51, 0.59],
   ];
 
   showDialogue(double xPosition, double yPosition) {

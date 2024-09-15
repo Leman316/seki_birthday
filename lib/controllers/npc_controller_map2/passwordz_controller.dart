@@ -15,14 +15,16 @@ class PasswordzController extends GetxController implements NPCInterface {
   RxInt currentDialoguePosition = 0.obs;
   String characterName = "Passwordz: ";
   List<String> dialogues = [
-    "Ivsa",
+    "Idk why, I always dream about being a duck and starting a duck army",
     "I really want Geni's Schlongy blongy in and around my face.",
-    "acsads",
+    "I think I've told u guys this before the most scariest dream I had was being fucked by a furry.",
+    "Any aussie milfs in chat? modCheck. I am in need of a Aussie MILF in my life.",
+    "Happy Birthday Ya dawg! ",
   ];
 
   List<List<double>> activeLocation = [
     [0.37, 0.43],
-    [0.51, 0.56],
+    [0.50, 0.57],
   ];
 
   showDialogue(double xPosition, double yPosition) {

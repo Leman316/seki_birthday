@@ -1,18 +1,20 @@
 import 'package:get/get.dart';
+import 'package:seki_birthday/utils/helpers.dart';
 
-import '../consts/consts.dart';
 import '/controllers/map_controller.dart';
+import '../consts/consts.dart';
 import 'npc_controllers.dart';
 
 class CharacterController extends GetxController {
   RxDouble posX = (Get.height * .8).obs;
   RxDouble posY = (Get.width * .2).obs;
-  RxInt positioning = 4.obs;
+  RxInt positioning = 1.obs;
   int speed = 7;
   MapController mapController = Get.find();
   RxBool stuck = false.obs;
   RxBool showDialogue = false.obs;
   RxString dialogueText = ''.obs;
+  RxBool started = false.obs;
 
   Map<int, String> currentImage = {
     1: AppAssets.charUp,
@@ -21,18 +23,31 @@ class CharacterController extends GetxController {
     4: AppAssets.charRight,
   };
 
-  JerzyController jerzy = Get.put(JerzyController());
+  NatController jerzy = Get.put(NatController());
   CharityController charity = Get.put(CharityController());
   PisuJohnController john = Get.put(PisuJohnController());
-  EllenController ellen = Get.put(EllenController());
+
+  JammyController jammy = Get.put(JammyController());
   PasswordzController passwordz = Get.put(PasswordzController());
-  NGController ngda = Get.put(NGController());
+  EllenController ngda = Get.put(EllenController());
+
   TopsuController topsu = Get.put(TopsuController());
   SholziController sholzi = Get.put(SholziController());
   NorController nor = Get.put(NorController());
+
   KittyController kitty = Get.put(KittyController());
+  FishyController fishy = Get.put(FishyController());
+  FoxController fox = Get.put(FoxController());
+
+  LemanController leman = Get.put(LemanController());
+  PayController pay = Get.put(PayController());
 
   void move(Direction direction) {
+    speed = 7;
+    if (started.value) return;
+
+    writeStorage("map", mapController.currentMap.value);
+
     double xPosition = calculatePosition(posX.value, Get.height);
     double yPosition = calculatePosition(posY.value, Get.width);
     showDialogue.value = false;
@@ -72,6 +87,7 @@ class CharacterController extends GetxController {
       }
     } else if (mapController.currentMap.value == 2) {
       List<bool> isOverlap = overlapCheck(mapController.map2NoGoZones, xPosition, yPosition);
+
       stuckCheck(direction);
 
       if (!isOverlap.any((element) => element == true)) {
@@ -108,7 +124,8 @@ class CharacterController extends GetxController {
         }
       }
     } else if (mapController.currentMap.value == 3) {
-      List<bool> isOverlap = List.generate(mapController.map3NoGoZones.length, (index) => false);
+      List<bool> isOverlap = overlapCheck(mapController.map3NoGoZones, xPosition, yPosition);
+
       stuckCheck(direction);
 
       if (!isOverlap.any((element) => element == true)) {
@@ -171,8 +188,52 @@ class CharacterController extends GetxController {
             break;
           case Direction.right:
             if (posY.value >= Get.width * .7) {
-              mapController.currentMap.value = 4;
+              mapController.currentMap.value = 5;
+
+              posX.value = posX.value - Get.height * .05;
               posY.value = Get.width * .03;
+            } else {
+              if (posX.value <= Get.height * .44 || posX.value >= Get.height * .53) {
+                if (posY.value <= Get.width * .67) {
+                  posY.value += speed;
+                }
+              } else {
+                posY.value += speed;
+              }
+            }
+            positioning.value = 4;
+            break;
+        }
+      }
+    } else if (mapController.currentMap.value == 5) {
+      List<bool> isOverlap = overlapCheck(mapController.map5NoGoZones, xPosition, yPosition);
+      stuckCheck(direction);
+      if (!isOverlap.any((element) => element == true)) {
+        switch (direction) {
+          case Direction.up:
+            if (posX.value >= Get.height * .05 && posY.value >= Get.width * .1) posX.value -= speed;
+            positioning.value = 1;
+            break;
+          case Direction.down:
+            if (posX.value <= Get.height * .60 && posY.value >= Get.width * .1) posX.value += speed;
+            positioning.value = 2;
+            break;
+          case Direction.left:
+            if (posY.value >= Get.width * .1 || Get.height * .32 <= posX.value && posX.value <= Get.height * .48) {
+              posY.value -= speed;
+              if (posY.value <= Get.width * .02) {
+                mapController.currentMap.value = 4;
+                posX.value = (Get.height) * .46;
+                posY.value = (Get.width * .69);
+              }
+            }
+
+            positioning.value = 3;
+            break;
+          case Direction.right:
+            if (posY.value >= Get.width * .7) {
+              //   mapController.currentMap.value = 5;
+              //    posY.value = Get.width * .03;
             } else {
               if (posX.value <= Get.height * .44 || posX.value >= Get.height * .53) {
                 if (posY.value <= Get.width * .67) {
@@ -191,10 +252,9 @@ class CharacterController extends GetxController {
 
   List<bool> overlapCheck(List<List<List<double>>> mapnoGoZones, double xPosition, double yPosition) {
     List<bool> isOverlap = List.generate(mapnoGoZones.length, (index) => false);
-    for (var item in mapController.map1NoGoZones) {
-      isOverlap[mapController.map1NoGoZones.indexOf(item)] =
-          (xPosition > item.first.first && xPosition <= item.first.last) &&
-              (yPosition > item.last.first && yPosition <= item.last.last);
+    for (List<List<double>> item in mapnoGoZones) {
+      isOverlap[mapnoGoZones.indexOf(item)] = (xPosition > item.first.first && xPosition <= item.first.last) &&
+          (yPosition > item.last.first && yPosition <= item.last.last);
     }
     if (isOverlap.any((element) => true)) {
       stuck.value = true;
@@ -221,19 +281,10 @@ class CharacterController extends GetxController {
   }
 
   reset() {
-    if (mapController.currentMap.value == 1) {
-      posX.value = (Get.height * .8);
-      posY.value = (Get.width * .2);
-    } else if (mapController.currentMap.value == 2) {
-      posX.value = (Get.height * .23);
-      posY.value = (Get.width * .06);
-    } else if (mapController.currentMap.value == 3) {
-      posX.value = (Get.height * .46);
-      posY.value = (Get.width * .02);
-    } else if (mapController.currentMap.value == 4) {
-      posX.value = (Get.height * .44);
-      posY.value = (Get.width * .03);
-    }
+    speed = 0;
+
+    setup();
+    positioning.value = 4;
   }
 
   interact() {
@@ -246,7 +297,7 @@ class CharacterController extends GetxController {
         charity.showDialogue(xPosition, yPosition);
       }
       if (mapController.currentMap.value == 2) {
-        ellen.showDialogue(xPosition, yPosition);
+        jammy.showDialogue(xPosition, yPosition);
         ngda.showDialogue(xPosition, yPosition);
         passwordz.showDialogue(xPosition, yPosition);
       }
@@ -257,13 +308,43 @@ class CharacterController extends GetxController {
       }
       if (mapController.currentMap.value == 4) {
         kitty.showDialogue(xPosition, yPosition);
+        fishy.showDialogue(xPosition, yPosition);
+        fox.showDialogue(xPosition, yPosition);
       }
-      if (mapController.currentMap.value == 5) {}
+      if (mapController.currentMap.value == 5) {
+        leman.showDialogue(xPosition, yPosition);
+        pay.showDialogue(xPosition, yPosition);
+      }
     }
   }
 
   double calculatePosition(double value, double dimension) {
     return double.parse((value / dimension).toStringAsFixed(2));
+  }
+
+  setup() {
+    if (mapController.currentMap.value == 1) {
+      posX.value = (Get.height * .8);
+      posY.value = (Get.width * .2);
+    } else if (mapController.currentMap.value == 2) {
+      posX.value = (Get.height * .23);
+      posY.value = (Get.width * .06);
+    } else if (mapController.currentMap.value == 3) {
+      posX.value = (Get.height * .46);
+      posY.value = (Get.width * .02);
+    } else if (mapController.currentMap.value == 4) {
+      posX.value = (Get.height * .44);
+      posY.value = (Get.width * .03);
+    } else if (mapController.currentMap.value == 5) {
+      posX.value = (Get.height * .44);
+      posY.value = (Get.width * .03);
+    }
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    setup();
   }
 }
 

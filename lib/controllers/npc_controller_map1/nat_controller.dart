@@ -1,30 +1,30 @@
 import 'package:get/get.dart';
+import '/controllers/character_controller.dart';
 import '/models/npc_interface.dart';
 
 import '../../consts/consts.dart';
-import '../character_controller.dart';
 
-class PisuJohnController extends GetxController implements NPCInterface {
+class NatController extends GetxController implements NPCInterface {
   @override
-  double get posX => .26 * Get.height;
+  double get posX => .43 * Get.height;
   @override
-  double get posY => .605 * Get.width;
+  double get posY => .315 * Get.width;
   @override
-  String get assetPath => AppAssets.john;
+  String get assetPath => AppAssets.jerzy;
 
   RxInt currentDialoguePosition = 0.obs;
-  String characterName = "PisuJohn: ";
+  String characterName = "Nat: ";
   List<String> dialogues = [
-    "Any waifus in chat?",
-    "Imagine having an ex to cheat on.",
-    "Your multiple times waifu and husbando.",
-    "Well, I redeemed a Highlight My Message once. Hoarding for the song now PogTasty.",
-    "生日快樂! Happy birthday! Hope you have a nice day.",
+    "I eat pickles and pickle juice",
+    "Ah, ah, ahhhh. They just keep dropping on my face. Stop! My face can't handle them.",
+    "So, I want somewhere around this color spectrum, a little fanum tax on the top. No shorter than skibidi. Thank you!",
+    "What is my little pony jar?",
+    "Happy Birthday! I'm so grateful to have you apart of my life - thank you for being so extraordinary and sweet!",
   ];
 
   List<List<double>> activeLocation = [
-    [0.23, 0.29],
-    [0.57, 0.64],
+    [0.39, 0.48],
+    [0.27, 0.35],
   ];
 
   showDialogue(double xPosition, double yPosition) {

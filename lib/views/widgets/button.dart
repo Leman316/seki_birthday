@@ -37,6 +37,7 @@ class _TapButtonState extends State<TapButton> {
       child: Container(
         width: AppSizes.newSize(6),
         height: AppSizes.newSize(6),
+        margin: const EdgeInsets.all(4),
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(.6),
           border: Border.all(width: 2, color: Colors.white.withOpacity(.3)),

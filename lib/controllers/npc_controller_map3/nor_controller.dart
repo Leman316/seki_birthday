@@ -15,14 +15,17 @@ class NorController extends GetxController implements NPCInterface {
   RxInt currentDialoguePosition = 0.obs;
   String characterName = "Nor: ";
   List<String> dialogues = [
-    "ayo",
-    "ssab",
-    "ac",
+    "I just realized its called a waterfall because and it water the fall for its too.",
+    "So because then can when water it fall.",
+    "Man. I really wish I knew what chair seki is sitting on so i can get the same feeling of touch he has on his pumpkins everyday.",
+    "I have to go pick up my girlfriend from kindergarten...",
+    "...It's her first day of teaching at school.",
+    "Happy Birthday. Thanks for being veryPog"
   ];
 
   List<List<double>> activeLocation = [
     [0.30, 0.38],
-    [0.21, 0.28],
+    [0.20, 0.29],
   ];
 
   showDialogue(double xPosition, double yPosition) {

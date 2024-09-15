@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../consts/consts.dart';
@@ -13,20 +12,6 @@ getHeight(context, percentage) {
 getWidth(context, percentage) {
   double width = MediaQuery.of(context).size.width;
   return width * percentage / 100;
-}
-
-showToast(String message, [ToastGravity gravity = ToastGravity.BOTTOM]) {
-  if (message != '') {
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: Toast.LENGTH_LONG,
-      gravity: gravity,
-      timeInSecForIosWeb: 2,
-      backgroundColor: Colors.grey.shade800,
-      textColor: Colors.white,
-      fontSize: 14.0,
-    );
-  }
 }
 
 showSnackBar(String message, [callback, int duration = 5]) {
@@ -85,45 +70,6 @@ unfocusKeyboard() {
     FocusManager.instance.primaryFocus?.unfocus();
   }
 }
-
-// initNotification({required Null Function(RemoteMessage message) onOpen}) async {
-//   dd('initNotification');
-
-//   FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-//   NotificationSettings settings = await messaging.requestPermission(
-//     alert: true,
-//     announcement: false,
-//     badge: true,
-//     carPlay: false,
-//     criticalAlert: false,
-//     provisional: false,
-//     sound: true,
-//   );
-
-//   if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-//     dd('User granted permission');
-//   } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
-//     dd('User granted provisional permission');
-//   } else {
-//     dd('User declined or has not accepted permission');
-//   }
-
-//   //dd(await FirebaseMessaging.instance.getToken());
-//   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
-//     alert: true,
-//     badge: true,
-//     sound: true,
-//   );
-
-//   FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-//     onOpen(message);
-//   });
-
-//   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-//     dd(message.notification?.title);
-//   });
-// }
 
 Future<String> getToken() {
   return Future.value('');

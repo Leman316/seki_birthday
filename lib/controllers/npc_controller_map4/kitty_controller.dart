@@ -15,14 +15,18 @@ class KittyController extends GetxController implements NPCInterface {
   RxInt currentDialoguePosition = 0.obs;
   String characterName = "Kitty: ";
   List<String> dialogues = [
-    "aao",
-    "ssab",
-    "sssac",
+    "I'm trying to sneak around, but the clap of my dummy thicc cheeks keeps alerting the guards",
+    "I'm gettin out my 12 gauge for that little varmint. We're eatin good for supper tonight",
+    "Me scrolling twitter listening to seki lecture me about how brainrotted I am. Skibidi man bussin frfr",
+    "I like pickle on my borgar BUSSIN. That's a big cock YesYes.",
+    "That's how you know you've stepped into KKona territory is when they start callin dinner supper and there's a church on every block.",
+    "is this game better than a cold glass of water on a hot summer day? is this game better than peeling off the plastic on a new electronic device?",
+    "Happy Birthday. Glad you're having fun playing all these new games and hanging around with all of us goofballs in chat",
   ];
 
   List<List<double>> activeLocation = [
     [0.26, 0.34],
-    [0.18, 0.24],
+    [0.16, 0.25],
   ];
 
   showDialogue(double xPosition, double yPosition) {

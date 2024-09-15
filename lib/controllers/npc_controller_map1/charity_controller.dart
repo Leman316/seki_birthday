@@ -15,14 +15,17 @@ class CharityController extends GetxController implements NPCInterface {
   RxInt currentDialoguePosition = 0.obs;
   String characterName = "HighCharity: ";
   List<String> dialogues = [
-    "avas",
-    "ab",
-    "ac",
+    "I dreamt recently that you started doing coke seki. And I had a massive argument with you over it because you went skinny and strange looking.",
+    "Hey kiddo, wanna become a furry like me?. It's great, trust me .",
+    "Getting swole, smashed an ex, my high school teacher.",
+    "Get your Master Chief cosplay out, you cunt.",
+    "Sekis had 3 guys in one go. Slapping it on his face whilst he's knelt down. Gayge.",
+    "Happy Birthday from this freeloader.",
   ];
 
   List<List<double>> activeLocation = [
     [0.64, 0.70],
-    [0.53, 0.58],
+    [0.52, 0.59],
   ];
 
   showDialogue(double xPosition, double yPosition) {

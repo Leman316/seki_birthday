@@ -4,27 +4,27 @@ import '../../consts/consts.dart';
 import '../../models/npc_interface.dart';
 import '../character_controller.dart';
 
-class SholziController extends GetxController implements NPCInterface {
+class JammyController extends GetxController implements NPCInterface {
   @override
-  double get posX => .72 * Get.height;
+  double get posX => .43 * Get.height;
   @override
-  double get posY => .115 * Get.width;
+  double get posY => .275 * Get.width;
   @override
-  String get assetPath => AppAssets.sholzi;
+  String get assetPath => AppAssets.jammy;
 
   RxInt currentDialoguePosition = 0.obs;
-  String characterName = "Sholzi: ";
+  String characterName = "Jammy: ";
   List<String> dialogues = [
-    "Oh for fuck's sake! Shut up you gobshite.",
-    "50 Quid! 50 Quid! I am a woman of business! What can I say? I'm a good little piggy! oink, oink.",
-    "Lichrilly!!! Don't carry anything metal!",
-    "God, Gross! That's what feels like when it's night trouble and fellas keep coming onto you. BLEH! Like leeches.",
-    "I'm a fucking Twat. I licked a pumpkin for nothing."
+    "K Dramas are my guilty pleasure KEKW.",
+    "Brain not working, picking up dog toys and almost threw in the toilet instead of the toy box.",
+    "I’ll pay you to not play more Taylor Swift.",
+    "flowers are nice but they die, buy a plant instead.",
+    "Happy Birthday from your Twitch Mom.",
   ];
 
   List<List<double>> activeLocation = [
-    [0.68, 0.76],
-    [0.08, 0.16],
+    [0.40, 0.46],
+    [0.24, 0.31],
   ];
 
   showDialogue(double xPosition, double yPosition) {

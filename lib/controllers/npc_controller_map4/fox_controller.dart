@@ -4,25 +4,28 @@ import '../../consts/consts.dart';
 import '../../models/npc_interface.dart';
 import '../character_controller.dart';
 
-class NGController extends GetxController implements NPCInterface {
+class FoxController extends GetxController implements NPCInterface {
   @override
-  double get posX => .65 * Get.height;
+  double get posX => .34 * Get.height;
   @override
-  double get posY => .275 * Get.width;
+  double get posY => .545 * Get.width;
   @override
-  String get assetPath => AppAssets.ngda;
+  String get assetPath => AppAssets.fox;
 
   RxInt currentDialoguePosition = 0.obs;
-  String characterName = "Ng_da: ";
+  String characterName = "FoxSt3v3: ";
   List<String> dialogues = [
-    "aycso",
-    "acsb",
-    "acsads",
+    "You're still good at 27 for some years to come. You have to push now Seks.",
+    "Literally put you in a cage with a monster and now you gotta step it up.",
+    "Bring me to snake eyes and we have a run, Seks.",
+    "wtf are you doing, you should be napping.",
+    "Seki can't unsee it now, going for the soft spot back there.",
+    "Happy Birthday! I'm drinking with you RN, mr. Ro Shadow.",
   ];
 
   List<List<double>> activeLocation = [
-    [0.61, 0.69],
-    [0.25, 0.30],
+    [0.30, 0.38],
+    [0.50, 0.59],
   ];
 
   showDialogue(double xPosition, double yPosition) {

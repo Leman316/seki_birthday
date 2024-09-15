@@ -1,28 +1,30 @@
 import 'package:get/get.dart';
-import '/controllers/character_controller.dart';
-import '/models/npc_interface.dart';
 
 import '../../consts/consts.dart';
+import '../../models/npc_interface.dart';
+import '../character_controller.dart';
 
-class JerzyController extends GetxController implements NPCInterface {
+class FishyController extends GetxController implements NPCInterface {
   @override
-  double get posX => .43 * Get.height;
+  double get posX => .62 * Get.height;
   @override
-  double get posY => .315 * Get.width;
+  double get posY => .31 * Get.width;
   @override
-  String get assetPath => AppAssets.jerzy;
+  String get assetPath => AppAssets.fishy;
 
   RxInt currentDialoguePosition = 0.obs;
-  String characterName = "Jerzy: ";
+  String characterName = "Fishy: ";
   List<String> dialogues = [
-    "a   oi  oi   oi",
-    "ab   oi  oi   oi",
-    "ac   oi  oi   oi",
+    "So...does sekiro use the tanto to shave his stubble to make spirit emblems Aware",
+    "'You're a furry' is what she said",
+    "Bruh, why am i now PM'ed by an 'Alice' on discord...I blame your server",
+    "You check her myanimelist and its all BL monkaS",
+    "Happy bday to the most committed and unyielding speed and challenge runner I've ever seen",
   ];
 
   List<List<double>> activeLocation = [
-    [0.39, 0.48],
-    [0.29, 0.34],
+    [0.58, 0.66],
+    [0.27, 0.35],
   ];
 
   showDialogue(double xPosition, double yPosition) {
